@@ -125,7 +125,6 @@ cd configs
 touch __init__.py base.py dev.py prod.py
 
 echo "
-
 from pathlib import Path
 from os import getenv
 
@@ -216,7 +215,6 @@ DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"
 " > base.py
 
 echo "
-
 from .base import *
 from os import getenv
 
@@ -240,7 +238,6 @@ WSGI_APPLICATION = \"$PROJECT_NAME.wsgi.application\"
 " > dev.py
 
 echo "
-
 from .base import *
 from os import getenv
 
