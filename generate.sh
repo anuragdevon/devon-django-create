@@ -28,7 +28,7 @@ pip3 install django djangorestframework black python-dotenv
 echo "setting up environment files..."
 touch .env
 echo "
-DJANGO_SETTINGS_MODULE=\"$PROJECT_NAME.settings.dev\"
+DJANGO_SETTINGS_MODULE=\"$PROJECT_NAME.configs.dev\"
 SECRET_KEY=\"SECRET_KEY_TEMP_DEV\"
 DB_ENGINE=\"django.db.backends.postgresql\"
 DB_NAME=\"$PROJECT_NAME\"
