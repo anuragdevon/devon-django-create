@@ -269,6 +269,55 @@ cd ../../
 echo "setting up app..."
 mkdir app/
 cd app/
+mkdir fixtures
+touch __init__.py admin.py apps.py models.py serializers.py tests.py urls.py views.py
 
-touch __init__.py admin.py apps.py models.py serializer.py tests.py urls.py views.py
+echo "
+from django.urls import path
+from .views import (
+    YOUR_METHOD_CLASS
+)
+
+urlpatterns = [
+    path(\"/\", YOUR_METHOD_CLASS.as_view()),
+]
+" > urls.py
+
+echo "
+from django.http import HttpResponse
+from rest_framework import generics
+from datetime import datetime
+from rest_framework.pagination import PageNumberPagination
+from rest_framework import filters
+from rest_framework.response import Response
+from rest_framework import status
+" > views.py
+
+echo "
+from rest_framework import serializers
+from django.contrib.auth.models import User
+" > serializers.py
+
+echo "
+from django.db import models
+" > models.py
+
+echo "
+from django.apps import AppConfig
+
+
+class AppConfig(AppConfig):
+    default_auto_field = \"django.db.models.BigAutoField\"
+    name = \"app\"
+
+" > apps.py
+
+echo "
+from django.contrib import admin
+" > admin.py
 #---------------------------------------------------------------------
+cd ..
+pip freeze > requirements.txt
+echo "Django Project $1 Setup Complete!"
+#---------------------------------------------------------------------
+
